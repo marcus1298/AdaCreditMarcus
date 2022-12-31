@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "GHM9z2uL4gACbydLXFIem90RHAhbLTrka9uxDWKM9JN722sy64qmhlUfbrUAMil3A7wSvoksjKrdtvTB8Tbwyw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\marco\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\consolemenu-simple\\2.4.3\\consolemenu-simple.2.4.3.nupkg.sha512"
+  ],
+  "logs": []
+}
