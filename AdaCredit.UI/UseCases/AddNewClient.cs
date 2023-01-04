@@ -1,4 +1,5 @@
 ﻿using AdaCredit.UI.Repositories;
+using System.Reflection.Metadata;
 
 namespace AdaCredit.UI.UseCases
 {
@@ -9,13 +10,18 @@ namespace AdaCredit.UI.UseCases
             Console.WriteLine("Digite o Nome:");
             var name = Console.ReadLine();
 
-            Console.WriteLine("Digite o CPF (sem formatação):");
-            var document = long.Parse(Console.ReadLine());
+            var document = "0";
 
+
+            while (!ValidaCPF.IsCpf(document))
+            {
+                Console.Clear();
+                Console.WriteLine("Digite o CPF:");
+                document = Console.ReadLine();
+                
+            }
             var client = new Client(name, document);
-
-            var repository = new ClientRepository();
-            var result = repository.Add(client);
+            var result = ClientRepository.Add(client);
 
             if (result)
                 Console.WriteLine("Cliente cadastrado com sucesso!");

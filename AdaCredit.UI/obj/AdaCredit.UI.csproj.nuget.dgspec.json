@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj": {}
+    "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj": {
+    "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj",
+        "projectUniqueName": "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj",
         "projectName": "AdaCredit.UI",
-        "projectPath": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj",
+        "projectPath": "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj",
         "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\obj\\",
+        "outputPath": "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,6 +43,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Bogus": {
               "target": "Package",
               "version": "[34.0.2, )"

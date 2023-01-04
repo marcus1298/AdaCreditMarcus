@@ -1,23 +1,26 @@
 ﻿namespace AdaCredit.UI
 {
-    public sealed class Client
+    public  class Client
     {
-        public string Name { get; private set; }
-        public long Document { get; private set; }
-        public Account Account { get; private set; } = null;
+        public string Name { get;  set; }
+        public string Document { get;  set; }
+        public Account Account { get;  set; } = null;
+        public string Status { get; set; }
 
-        public Client(string name, long document)
+        public Client(string name, string document)
         {
             Name = name;
             Document = document;
             Account = null;
+            Status = "Ativo";
         }
 
-        public Client(string name, long document, Account account)
+        public Client(string name, string document, Account account)
         {
             Name = name;
             Document = document;
             Account = account;
+            Status = "Ativo";
         }
     }
 }

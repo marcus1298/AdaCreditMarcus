@@ -12,11 +12,14 @@ namespace AdaCredit.UI.Entities
         public string Name { get; set; }
         public string Password { get; set; }
 
+        public string Status { get; set; }
+
         public Employee(string name, string login, string password)
         {
             Name = name;
             Login = login;
             Password = password;
+            Status = "Ativo";
         }
     }
 }

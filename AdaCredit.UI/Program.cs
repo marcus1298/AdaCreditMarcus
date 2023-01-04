@@ -10,8 +10,10 @@ namespace AdaCredit.UI
 
             var loginScreen = new Login(employeeRepository);
             loginScreen.Show();
-            
-            
+            var menuScreen = new Menu();
+            menuScreen.Show();
+
+
         }
     }
 }
