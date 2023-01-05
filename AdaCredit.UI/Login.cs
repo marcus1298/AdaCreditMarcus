@@ -50,7 +50,7 @@ namespace AdaCredit.UI
                     var records = csv.GetRecords<Employee>();
                     foreach (var record in records)
                     {
-                        _employee.Add(record);
+                        EmployeeRepository._employees.Add(record);
 
 
                     }
@@ -67,13 +67,13 @@ namespace AdaCredit.UI
                 loggedIn = username.Equals("user", StringComparison.InvariantCultureIgnoreCase)
                            && password.Equals("pass", StringComparison.InvariantCultureIgnoreCase);
 
-                Employee? autenticado = _employee.FirstOrDefault(x => x.Login == username &&
+                Employee? autenticado = EmployeeRepository._employees.FirstOrDefault(x => x.Login == username &&
                     x.Password == password);
 
                 if(autenticado != null)
                 {
                     loggedIn = true;
-                    _employee.Where(x => x.Login == username &&
+                    EmployeeRepository._employees.Where(x => x.Login == username &&
                     x.Password == password).ToList()[0].horaLogin = DateTime.Now;
                 }
               

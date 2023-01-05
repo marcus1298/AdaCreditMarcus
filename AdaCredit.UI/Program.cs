@@ -18,9 +18,15 @@ namespace AdaCredit.UI
             pathFuncionarios += "ArquivoFuncionarios";
             string pathTransaction = path.Remove(path.LastIndexOf("\\") + 1);
             pathTransaction += "Transactions";
+            string pathFailed = path.Remove(path.LastIndexOf("\\") + 1);
+            pathFailed += "ArquivoFailed";
+            string pathCompleted = path.Remove(path.LastIndexOf("\\") + 1);
+            pathCompleted += "ArquivoCompleted";
             System.IO.Directory.CreateDirectory(pathClientes);
             System.IO.Directory.CreateDirectory(pathFuncionarios);
             System.IO.Directory.CreateDirectory(pathTransaction);
+            System.IO.Directory.CreateDirectory(pathFailed);
+            System.IO.Directory.CreateDirectory(pathCompleted);
             ClientRepository.startClient();
             var employeeRepository = new EmployeeRepository();
 

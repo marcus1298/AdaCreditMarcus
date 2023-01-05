@@ -31,10 +31,35 @@ namespace AdaCredit.UI.Repositories
             return caminhoArquivo;
         }
 
+
         public static void reconciliation()
         {
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { Delimiter = ",", HasHeaderRecord = false };
-            using (var reader = new StreamReader(ConfigFile("conciliacao.csv", "Transaction_failed")))
+            try
+            {
+                using (var reader = new StreamReader(ConfigFile("adacreditInfo.csv", "ArquivoCompleted")))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    var successfulTransaction = csv.GetRecords<Transaction>();
+                }
+            }
+            catch (Exception e)
+            {
+                
+            }
+            try
+            {
+                using (var reader = new StreamReader(ConfigFile("adacreditInfo.csv", "ArquivoFailed")))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                   var failedTransaction = csv.GetRecords<Transaction>();
+                }
+            }
+            catch (Exception e)
+            {
+               
+            }
+            using (var reader = new StreamReader(ConfigFile("conciliacao.csv", "Transactions")))
             using (var csv = new CsvReader(reader, config))
 
             {
@@ -43,7 +68,7 @@ namespace AdaCredit.UI.Repositories
                 foreach (var transaction in records)
                 {
 
-                    Client? contaOrigem = _clients.FirstOrDefault(x => x.BankCode == transaction.OriginBankCode &&
+                    Client? contaOrigem = ClientRepository._clients.FirstOrDefault(x => x.BankCode == transaction.OriginBankCode &&
                     x.Branch == transaction.OriginBankAgency &&
                     x.Number == transaction.OriginBankAccount);
                     if (contaOrigem == null)
@@ -51,10 +76,12 @@ namespace AdaCredit.UI.Repositories
                         transaction.Desc = "Conta de origem nao existe";
                         failedTransaction.Add(transaction);
                         Console.WriteLine("Conta de origem nao existe");
+                        Console.ReadKey();
+                        Save();
                         return;
                     }
 
-                    Client? contaDestino = _clients.FirstOrDefault(x => x.BankCode == transaction.DestinyBankCode &&
+                    Client? contaDestino = ClientRepository._clients.FirstOrDefault(x => x.BankCode == transaction.DestinyBankCode &&
                     x.Branch == transaction.DestinyBankAgency &&
                     x.Number == transaction.DestinyBankAccount);
                     if (contaDestino == null)
@@ -62,6 +89,8 @@ namespace AdaCredit.UI.Repositories
                         Console.WriteLine("Conta de destino nao existe");
                         transaction.Desc = "Conta de destino nao existe";
                         failedTransaction.Add(transaction);
+                        Console.ReadKey();
+                        Save();
                         return;
                     }
                     var taxa = 0.0;
@@ -90,24 +119,53 @@ namespace AdaCredit.UI.Repositories
                         transaction.Desc = "Nao existe saldo o suficiente para essa operacao";
                         Console.WriteLine("Nao existe saldo o suficiente para essa operacao");
                         failedTransaction.Add(transaction);
+                        Console.ReadKey();
                         return;
                     }
                     else
                     {
+                        Console.WriteLine("Transacao bem sucedida!");
                         contaOrigem.balance = contaOrigem.balance - (transaction.ValueTransaction + taxa);
                         contaDestino.balance = contaDestino.balance + transaction.ValueTransaction;
                         successfulTransaction.Add(transaction);
+                        Save();
+                        Console.ReadKey();
 
                     }
                 }
 
-
+                
             }
-            Console.ReadKey();
+           
         }
 
         public static void WrongTransactions()
-        {
+        {           
+            try
+            {
+                using (var reader = new StreamReader(ConfigFile("adacreditInfo.csv", "ArquivoFailed")))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    var records = csv.GetRecords<Transaction>();
+                    foreach (var record in records)
+                    {
+                        failedTransaction.Add(record);
+
+                    }
+                }
+                
+            }
+            catch (Exception e)
+            {
+                
+            }          
+
+            if (failedTransaction is null)
+            {
+                Console.WriteLine("Não existem transações na lista");
+                return;
+            }
+
             foreach (var line in failedTransaction)
             {
                 
@@ -121,27 +179,27 @@ namespace AdaCredit.UI.Repositories
                 Console.WriteLine($"Forma de transacao: {line.WayTransaction}");
                 Console.WriteLine($"Valor da transacao: {line.ValueTransaction}");
                 Console.WriteLine($"Motivo da falha: {line.Desc}");
+                Console.WriteLine();
 
             }
+            Console.ReadKey();
         }
 
 
         public static void Save()
         {
-            var archiveName = "adacredit" + DateTime.Now.ToString() + ".csv";
-            using (var writer = new StreamWriter(ConfigFile(archiveName, "Completed")))
+            var archiveName = "adacreditInfo.csv";
+            using (var writer = new StreamWriter(ConfigFile(archiveName, "ArquivoCompleted")))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
                 csv.WriteRecords(successfulTransaction);
             }
-            using (var writer = new StreamWriter(ConfigFile(archiveName, "Failed")))
+            using (var writer = new StreamWriter(ConfigFile(archiveName, "ArquivoFailed")))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
                 csv.WriteRecords(failedTransaction);
             }
-        }
-
-       
+        }      
 
     }
 

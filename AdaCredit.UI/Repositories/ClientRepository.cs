@@ -166,9 +166,10 @@ namespace AdaCredit.UI.Repositories
             {
                 if (line.Status == "Ativo")
                 {
-                    Console.WriteLine($"Cliente: {line.Name} - Saldo: {line.balance.ToString("C")}");
+                    Console.WriteLine($"Cliente: {line.Name} - Saldo: {line.balance}");
                 }
             }
+            Console.ReadKey();
         }
 
         public static void ShowInativeClients()
@@ -180,6 +181,7 @@ namespace AdaCredit.UI.Repositories
                     Console.WriteLine($"Cliente: {line.Name}");
                 }
             }
+            Console.ReadKey();
         }
 
         public static void Save()
