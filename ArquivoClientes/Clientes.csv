@@ -1,0 +1,9 @@
+Name,Document,BankCode,Number,Branch,Status,balance
+Marcus Valetim,6004288624,777,19208-8,0001,Ativo,200
+Karolina Clara,71773678965,777,04293-5,0001,Ativo,857
+Ingrid Vitoria,18271538810,777,04293-5,0001,Ativo,8900
+Inez Regina,54734388814,127,14293-1,0001,Desativado,3775
+Bruno Nunes,65369958130,127,24293-9,0001,Ativo,4832
+Tiago Oliveira,69082024292,127,34293-8,0001,Ativo,9765
+Beatriz Silva,33278345126,127,44293-7,0001,Ativo,88857
+

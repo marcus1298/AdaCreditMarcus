@@ -1,17 +1,25 @@
-﻿namespace AdaCredit.UI
+﻿namespace AdaCredit.UI.Entities
 {
-    public  class Client
+    public class Client
     {
-        public string Name { get;  set; }
-        public string Document { get;  set; }
-        public Account Account { get;  set; } = null;
+        public string Gender { get; set; }
+        public string Name { get; set; }
+        public string Document { get; set; }
+
+        public string BankCode { get; set; }
+        public string Branch { get; set; }
+        public string Number { get; set; }
         public string Status { get; set; }
+
+        public double balance { get; set; }
 
         public Client(string name, string document)
         {
             Name = name;
             Document = document;
-            Account = null;
+            Number = null;
+            Status = null;
+            balance = 0;
             Status = "Ativo";
         }
 
@@ -19,8 +27,11 @@
         {
             Name = name;
             Document = document;
-            Account = account;
+            BankCode = "777";
+            Number = account.Number;
+            Branch = "0001";
             Status = "Ativo";
+            balance = 0;
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj": {}
+    "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj": {
+    "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj",
+        "projectUniqueName": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj",
         "projectName": "AdaCredit.UI",
-        "projectPath": "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj",
+        "projectPath": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj",
         "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\obj\\",
+        "outputPath": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -54,6 +54,10 @@
             "ConsoleMenu-simple": {
               "target": "Package",
               "version": "[2.4.3, )"
+            },
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[30.0.1, )"
             }
           },
           "imports": [

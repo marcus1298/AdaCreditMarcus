@@ -36,6 +36,19 @@
         "runtime": {
           "lib/net5.0/ConsoleMenu.dll": {}
         }
+      },
+      "CsvHelper/30.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -104,13 +117,38 @@
         "lib/net5.0/ConsoleMenu.dll",
         "lib/netstandard1.3/ConsoleMenu.dll"
       ]
+    },
+    "CsvHelper/30.0.1": {
+      "sha512": "rcZtgbWR+As4G3Vpgx0AMNmShGuQLFjkHAPIIflzrfkJCx8/AOd4m96ZRmiU1Wi39qS5UVjV0P8qdgqOo5Cwyg==",
+      "type": "package",
+      "path": "csvhelper/30.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.30.0.1.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net45/CsvHelper.dll",
+        "lib/net45/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/net5.0/CsvHelper.dll",
+        "lib/net5.0/CsvHelper.xml",
+        "lib/net6.0/CsvHelper.dll",
+        "lib/net6.0/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "BCrypt.Net-Next >= 4.0.3",
       "Bogus >= 34.0.2",
-      "ConsoleMenu-simple >= 2.4.3"
+      "ConsoleMenu-simple >= 2.4.3",
+      "CsvHelper >= 30.0.1"
     ]
   },
   "packageFolders": {
@@ -120,11 +158,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj",
+      "projectUniqueName": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj",
       "projectName": "AdaCredit.UI",
-      "projectPath": "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj",
+      "projectPath": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj",
       "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\obj\\",
+      "outputPath": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -167,6 +205,10 @@
           "ConsoleMenu-simple": {
             "target": "Package",
             "version": "[2.4.3, )"
+          },
+          "CsvHelper": {
+            "target": "Package",
+            "version": "[30.0.1, )"
           }
         },
         "imports": [

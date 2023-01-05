@@ -1,4 +1,5 @@
-﻿using AdaCredit.UI.Repositories;
+﻿using AdaCredit.UI.Entities;
+using AdaCredit.UI.Repositories;
 using System.Reflection.Metadata;
 
 namespace AdaCredit.UI.UseCases

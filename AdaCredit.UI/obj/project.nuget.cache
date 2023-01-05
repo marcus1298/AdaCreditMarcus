@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "XveZh/ZvztPCTnbxb6qCSdAdxdXWGxtKAu6AsKQmuKlxSFH5edLFTfxsAwadZtu5gqn40RWo/Pl+ZrOVh4yOrw==",
+  "dgSpecHash": "5uc+AkNqk8H7RLFA+bCbFhBm5+JsUTzZbztQBC6Ze8CatgFcpD4bL6dD1hrGSU960GYscYrJ8xNohOF7S3FrfA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\marco\\Desktop\\ADA CS\\TestePaulo\\AdaCredit\\AdaCredit.UI\\AdaCredit.UI.csproj",
+  "projectFilePath": "C:\\Users\\marco\\Desktop\\ADA CS\\AdaCreditMarcus\\AdaCredit.UI\\AdaCredit.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marco\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\bogus\\34.0.2\\bogus.34.0.2.nupkg.sha512",
-    "C:\\Users\\marco\\.nuget\\packages\\consolemenu-simple\\2.4.3\\consolemenu-simple.2.4.3.nupkg.sha512"
+    "C:\\Users\\marco\\.nuget\\packages\\consolemenu-simple\\2.4.3\\consolemenu-simple.2.4.3.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -9,7 +9,7 @@ namespace AdaCredit.UI
     {
         public void Show()
         {
-
+            String path = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
             var subClient = new ConsoleMenu(Array.Empty<string>(), level: 1)
                 .Add("Cadastrar Novo Cliente", AddNewClient.Execute)
                 .Add("Consultar os Dados de um Cliente existente", ClientRepository.Query)
@@ -44,7 +44,7 @@ namespace AdaCredit.UI
                 });
 
             var subTransaction = new ConsoleMenu(Array.Empty<string>(), level: 1)
-                .Add("Processar Transações", AddNewEmployee.Execute)
+                .Add("Processar Transações", Reconciliation.reconciliation)
                 .Add("Voltar", ConsoleMenu.Close)
                 .Configure(config =>
                 {
