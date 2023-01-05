@@ -1,20 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AdaCredit.UI.Entities;
+using Bogus.DataSets;
+using CsvHelper;
 
 namespace AdaCredit.UI.Repositories
 {
     public class EmployeeRepository
     {
         public static List<Employee> _employees = new List<Employee>();
+        public static string ConfigFile(string nomeArquivo, string nomeRep)
+        {
+            String path = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+            for (int i = 0; i < 4; i++)
+            {
+                path = path.Remove(path.LastIndexOf("\\"));
+            }
+            string pathClientes = path.Remove(path.LastIndexOf("\\") + 1);
+            pathClientes += nomeRep; //"ArquivoClientes"
+            var caminhoDesktop = pathClientes;
+            var caminhoArquivo = Path.Combine(caminhoDesktop, nomeArquivo);
+            return caminhoArquivo;
+        }
+
         static EmployeeRepository()
         {
             try
             {
-                // Faz a leitura do arquivo e joga na _employees
+                using (var reader = new StreamReader(ConfigFile("Funcionarios.csv", "ArquivoFuncionarios")))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    var _clients = csv.GetRecords<Client>();
+                }
             }
             catch (Exception e)
             {
@@ -103,10 +124,31 @@ namespace AdaCredit.UI.Repositories
             Save();
             Console.ReadKey();
         }
-
-        public static void Save()
+        public static void PointControl()
         {
-            // escrever o arquivo
+            Employee? employee = _employees.FirstOrDefault(x => x.Status == "Ativo");
+            if (employee == null)
+            {
+                Console.WriteLine("Não existem funcionários ativos");
+            }
+            else
+            {
+                foreach (var _employee in _employees)
+                {
+                    Console.WriteLine($"Funcionário: {_employee.Name} - Ultimo Login: {_employee.horaLogin}");
+                }
+            }
+            Console.ReadKey();
+        }
+
+            public static void Save()
+        {
+            var archiveName = "Funcionarios.csv";
+            using (var writer = new StreamWriter(ConfigFile(archiveName, "ArquivoFuncionarios")))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(_employees);
+            }
         }
     }
 }

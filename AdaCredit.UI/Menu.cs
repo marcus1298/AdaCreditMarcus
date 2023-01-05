@@ -60,7 +60,7 @@ namespace AdaCredit.UI
             var subReports = new ConsoleMenu(Array.Empty<string>(), level: 1)
                 .Add("Exibir Todos os Clientes Ativos com seus Respectivos Saldos", ClientRepository.ShowActiveClients)
                 .Add("Exibir Todos os Clientes Inativos", ClientRepository.ShowInativeClients)
-                .Add("Exibir Todos os Funcionários Ativos e sua Última Data e Hora de Login", EmployeeRepository.ShowActiveEmployees)
+                .Add("Exibir Todos os Funcionários Ativos e sua Última Data e Hora de Login", EmployeeRepository.PointControl)
                 .Add("Exibir Transações com Erro", Reconciliation.WrongTransactions)
                 .Add("Voltar", ConsoleMenu.Close)
                 .Configure(config =>
