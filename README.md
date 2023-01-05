@@ -5,24 +5,37 @@ O usuário e senha "iniciais" (na primeira execução do programa) devem ser *"u
 Quando o login for bem sucedido, o sistema exibe um menu com opções para:
 
 -Clientes
+
   -Cadastrar Novo Cliente
+  
   -Consultar os Dados de um Cliente existente
+  
   -Alterar o Cadastro de um Cliente existente
+  
   -Desativar Cadastro de um Cliente existente
+  
 
 -Funcionários
   -Cadastrar Novo Funcionário
+  
   -Alterar Senha de um Funcionário existente
+  
   -Desativar Cadastro de um Funcionário existente
+  
 
 -Transações
     -Processar Transações (Reconciliação Bancária)
+    
 
 -Relatórios
   -Exibir Todos os Clientes Ativos com seus Respectivos Saldos
+  
   -Exibir Todos os Clientes Inativos
+  
   -Exibir Todos os Funcionários Ativos e sua Última Data e Hora de Login
+  
   -Exibir Transações com Erro (Detalhes da transação e do Erro)
+  
 
   Ao ser cadastrado, o cliente recebe um número de conta de 5 dígitos e um dígito verificador, ambos aleatórios, formando o padrão XXXXX-X.
 Por ser uma cooperativa digital, todos os clientes possuem o mesmo número de agência, que é 0001.
