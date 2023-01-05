@@ -159,6 +159,29 @@ namespace AdaCredit.UI.Repositories
             Console.ReadKey();
         }
 
+
+        public static void ShowActiveClients()
+        {
+            foreach (var line in _clients)
+            {
+                if (line.Status == "Ativo")
+                {
+                    Console.WriteLine($"Cliente: {line.Name} - Saldo: {line.balance.ToString("C")}");
+                }
+            }
+        }
+
+        public static void ShowInativeClients()
+        {
+            foreach (var line in _clients)
+            {
+                if (line.Status == "Desativado")
+                {
+                    Console.WriteLine($"Cliente: {line.Name}");
+                }
+            }
+        }
+
         public static void Save()
         {
 

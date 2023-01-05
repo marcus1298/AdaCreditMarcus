@@ -40,7 +40,7 @@ namespace AdaCredit.UI.Repositories
             return true;
         }
 
-        public static void ChangePass()
+        public static void ChangePass() // revisar esta funcao existe forma mais facil de dar update na senha
         {
 
             var name = Console.ReadLine();
@@ -70,7 +70,16 @@ namespace AdaCredit.UI.Repositories
             Save();
             Console.ReadKey();
         }
-
+        public static void ShowActiveEmployees()
+        {
+            foreach (var line in _employees)
+            {
+                if (line.Status == "Ativo")
+                {
+                    Console.WriteLine($"Funcionario: {line.Name}");
+                }
+            }
+        }
         public static void Deactivate()
         {
             Console.WriteLine("Digite o nome do funcionario:");

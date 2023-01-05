@@ -14,9 +14,9 @@ namespace AdaCredit.UI.Repositories
 
     internal class Reconciliation
     {
-        public static List<Transaction> _transaction = new List<Transaction>();
-        public static List<Transaction> failedTransaction = new List<Transaction>();
-        public static List<Transaction> successfulTransaction = new List<Transaction>();
+        public static List<Transaction> _transaction = new List<Transaction>(); 
+        public static List<Transaction> failedTransaction = new List<Transaction>();  // persistir dados
+        public static List<Transaction> successfulTransaction = new List<Transaction>();  // persistir dados
         public static string ConfigFile(string nomeArquivo, string nomeRep)
         {
             String path = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
@@ -25,7 +25,7 @@ namespace AdaCredit.UI.Repositories
                 path = path.Remove(path.LastIndexOf("\\"));
             }
             string pathClientes = path.Remove(path.LastIndexOf("\\") + 1);
-            pathClientes += nomeRep; //"ArquivoClientes"
+            pathClientes += nomeRep; //"ArquivoReconciliation"
             var caminhoDesktop = pathClientes;
             var caminhoArquivo = Path.Combine(caminhoDesktop, nomeArquivo);
             return caminhoArquivo;
@@ -48,16 +48,19 @@ namespace AdaCredit.UI.Repositories
                     x.Number == transaction.OriginBankAccount);
                     if (contaOrigem == null)
                     {
+                        transaction.Desc = "Conta de origem nao existe";
                         failedTransaction.Add(transaction);
                         Console.WriteLine("Conta de origem nao existe");
                         return;
                     }
+
                     Client? contaDestino = _clients.FirstOrDefault(x => x.BankCode == transaction.DestinyBankCode &&
                     x.Branch == transaction.DestinyBankAgency &&
                     x.Number == transaction.DestinyBankAccount);
-                    if (contaOrigem == null)
-                    {
-                        Console.WriteLine("Conta de origem nao existe");
+                    if (contaDestino == null)
+                    {   
+                        Console.WriteLine("Conta de destino nao existe");
+                        transaction.Desc = "Conta de destino nao existe";
                         failedTransaction.Add(transaction);
                         return;
                     }
@@ -73,7 +76,7 @@ namespace AdaCredit.UI.Repositories
                             taxa = 6.00;
                         }
                         else
-                        {
+                        {   
                             taxa = 1 + (transaction.ValueTransaction / 100F);
                         }
                     }
@@ -84,7 +87,8 @@ namespace AdaCredit.UI.Repositories
 
                     if (transaction.ValueTransaction + taxa > contaOrigem.balance)
                     {
-                        Console.WriteLine("Não existe saldo o suficiente para essa operação");
+                        transaction.Desc = "Nao existe saldo o suficiente para essa operacao";
+                        Console.WriteLine("Nao existe saldo o suficiente para essa operacao");
                         failedTransaction.Add(transaction);
                         return;
                     }
@@ -100,6 +104,25 @@ namespace AdaCredit.UI.Repositories
 
             }
             Console.ReadKey();
+        }
+
+        public static void WrongTransactions()
+        {
+            foreach (var line in failedTransaction)
+            {
+                
+                Console.WriteLine($"Banco de Origem: {line.OriginBankCode}");
+                Console.WriteLine($"Agencia de Origem: {line.OriginBankAgency}");
+                Console.WriteLine($"Conta de Origem: {line.OriginBankAccount}");
+                Console.WriteLine($"Banco de destino: {line.DestinyBankCode}");
+                Console.WriteLine($"Agencia de destino: {line.DestinyBankAgency}");
+                Console.WriteLine($"Conta de destino: {line.DestinyBankAccount}");
+                Console.WriteLine($"Tipo de transacao: {line.TypeTransaction}");
+                Console.WriteLine($"Forma de transacao: {line.WayTransaction}");
+                Console.WriteLine($"Valor da transacao: {line.ValueTransaction}");
+                Console.WriteLine($"Motivo da falha: {line.Desc}");
+
+            }
         }
 
 
