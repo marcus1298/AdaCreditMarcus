@@ -36,7 +36,7 @@ Quando o login for bem sucedido, o sistema exibe um menu com opções para:
   
   -Exibir Transações com Erro (Detalhes da transação e do Erro)
   
-
+# Descrição
   Ao ser cadastrado, o cliente recebe um número de conta de 5 dígitos e um dígito verificador, ambos aleatórios, formando o padrão XXXXX-X.
 Por ser uma cooperativa digital, todos os clientes possuem o mesmo número de agência, que é 0001.
 
