@@ -11,6 +11,7 @@ using AdaCredit.UI.Repositories;
 
 namespace AdaCredit.UI.Repositories
 {
+
     internal class Reconciliation
     {
         public static List<Transaction> _transaction = new List<Transaction>();

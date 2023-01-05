@@ -9,7 +9,7 @@ namespace AdaCredit.UI.Repositories
 {
     public class EmployeeRepository
     {
-        private static List<Employee> _employees = new List<Employee>();
+        public static List<Employee> _employees = new List<Employee>();
         static EmployeeRepository()
         {
             try

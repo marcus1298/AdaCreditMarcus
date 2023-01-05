@@ -14,6 +14,8 @@ namespace AdaCredit.UI.Entities
 
         public string Status { get; set; }
 
+        public DateTime horaLogin { get; set; }
+
         public Employee(string name, string login, string password)
         {
             Name = name;

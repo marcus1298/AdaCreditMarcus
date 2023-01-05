@@ -1,5 +1,6 @@
 ﻿using AdaCredit.UI.Entities;
 using AdaCredit.UI.Repositories;
+using Bogus.DataSets;
 using CsvHelper;
 using CsvHelper.Configuration;
 using System.Data.Common;
@@ -11,8 +12,7 @@ namespace AdaCredit.UI
     public class Login
     {
         private readonly EmployeeRepository _employeeRepository;
-
-        public static List<Employee> employees = new List<Employee>();
+ 
 
         public Login(EmployeeRepository _employeeRepository)
         {
@@ -42,7 +42,7 @@ namespace AdaCredit.UI
             do
             {
                 var config = new CsvConfiguration(CultureInfo.InvariantCulture) { Delimiter = ",", HasHeaderRecord = false };
-                using (var reader = new StreamReader(ConfigFile("Clientes.csv", "ArquivoClientes")))
+                using (var reader = new StreamReader(ConfigFile("Funcionarios.csv", "ArquivoFuncionarios")))
                 using (var csv = new CsvReader(reader, config))
 
                 {
@@ -50,7 +50,7 @@ namespace AdaCredit.UI
                     var records = csv.GetRecords<Employee>();
                     foreach (var record in records)
                     {
-                        employees.Add(record);
+                        _employee.Add(record);
 
 
                     }
@@ -67,12 +67,14 @@ namespace AdaCredit.UI
                 loggedIn = username.Equals("user", StringComparison.InvariantCultureIgnoreCase)
                            && password.Equals("pass", StringComparison.InvariantCultureIgnoreCase);
 
-                Employee? autenticado = employees.FirstOrDefault(x => x.Login == username &&
+                Employee? autenticado = _employee.FirstOrDefault(x => x.Login == username &&
                     x.Password == password);
 
                 if(autenticado != null)
                 {
                     loggedIn = true;
+                    _employee.Where(x => x.Login == username &&
+                    x.Password == password).ToList()[0].horaLogin = DateTime.Now;
                 }
               
 
