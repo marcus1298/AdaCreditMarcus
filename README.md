@@ -4,7 +4,7 @@ O usuário e senha "iniciais" (na primeira execução do programa) devem ser *"u
 
 Quando o login for bem sucedido, o sistema exibe um menu com opções para:
 
--Clientes
+# Clientes
 
   -Cadastrar Novo Cliente
   
@@ -15,7 +15,7 @@ Quando o login for bem sucedido, o sistema exibe um menu com opções para:
   -Desativar Cadastro de um Cliente existente
   
 
--Funcionários
+# Funcionários
   -Cadastrar Novo Funcionário
   
   -Alterar Senha de um Funcionário existente
@@ -23,11 +23,11 @@ Quando o login for bem sucedido, o sistema exibe um menu com opções para:
   -Desativar Cadastro de um Funcionário existente
   
 
--Transações
+# Transações
     -Processar Transações (Reconciliação Bancária)
     
 
--Relatórios
+# Relatórios
   -Exibir Todos os Clientes Ativos com seus Respectivos Saldos
   
   -Exibir Todos os Clientes Inativos
@@ -50,7 +50,7 @@ Por ser uma cooperativa digital, todos os clientes possuem o mesmo número de ag
 
   Caso a transação tenha sido processada com sucesso, o registro da transação deve ser movido para um arquivo cujo padrão de nomenclatura é "nome-do-banco-parceiro-aaaammdd-completed.csv" e que deve ser armazenado na pasta "~/home/Transactions/Completed". É importante que o saldo do cliente tenha sido atualizado de forma correta, inclusive com as cobranças das devidas taxas.
 
-#ANEXO A - Layoute do Arquivo de Transações
+# ANEXO A - Layoute do Arquivo de Transações
 Cada linha no arquivo de transações é composta pelas seguintes informações
 AAA,BBBB,CCCCCC,DDD,EEEE,FFFFFF,GGG,H,I
 
@@ -71,7 +71,7 @@ I número real com duas casas decimais, separadas por um . e sem separador de mi
 
 Obs: TEFs só podem ser realizadas entre clientes do mesmo banco.
 
-#ANEXO B - Tabelas de Tarifas
+# ANEXO B - Tabelas de Tarifas
 Transações a Crédito
 Todas isentas de Tarifas
 
@@ -83,7 +83,7 @@ TED - Tarifa Única de R$5,00
 DOC - Tarifa de R$1,00 + (1% da Transação limitado a R$5,00)
 TEF - Isenta
 
-#ANEXO C - Salt (Salto)
+# ANEXO C - Salt (Salto)
 Um salt é, basicamente, uma cadeia de caracteres aleatória que é concatenada ao começo ou ao final da senha fornecida pelo usuário antes de aplicarmos a função de Criptografia/Hash. O uso do salt permite que o hash gerado seja completamente diferente, mesmo que duas ou mais senhas sejam idênticas. Uma vez que cada uma delas tem seu próprio salto, os hashs serão diferentes.
 
 Para que esse mecanismo funcione, além de armazenar o hash da senha do usuário, precisamos também armazenar o Salt, para que, no momento do login, possamos fazer a concatenação do hash daquele usuário específico com a senha fornecida no login a fim de comparar o resultado com o hash armazenado no "banco de dados".
