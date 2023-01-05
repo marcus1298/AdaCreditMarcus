@@ -141,24 +141,7 @@ namespace AdaCredit.UI.Repositories
 
         public static void WrongTransactions()
         {           
-            try
-            {
-                using (var reader = new StreamReader(ConfigFile("adacreditInfo.csv", "ArquivoFailed")))
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-                {
-                    var records = csv.GetRecords<Transaction>();
-                    foreach (var record in records)
-                    {
-                        failedTransaction.Add(record);
-
-                    }
-                }
-                
-            }
-            catch (Exception e)
-            {
-                
-            }          
+           
 
             if (failedTransaction is null)
             {

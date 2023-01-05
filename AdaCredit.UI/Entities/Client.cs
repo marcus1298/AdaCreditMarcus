@@ -2,7 +2,6 @@
 {
     public class Client
     {
-        public string Gender { get; set; }
         public string Name { get; set; }
         public string Document { get; set; }
 
@@ -18,8 +17,6 @@
             Name = name;
             Document = document;
             Number = null;
-            Status = null;
-            balance = 0;
             Status = "Ativo";
         }
 
@@ -31,7 +28,6 @@
             Number = account.Number;
             Branch = "0001";
             Status = "Ativo";
-            balance = 0;
         }
     }
 }

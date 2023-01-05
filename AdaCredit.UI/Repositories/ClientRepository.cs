@@ -100,6 +100,7 @@ namespace AdaCredit.UI.Repositories
             Console.WriteLine($"Agencia: {cliente.Branch}");
             Console.WriteLine($"Conta: {cliente.Number}");
             Console.WriteLine($"Status: {cliente.Status}");
+            Console.WriteLine($"Saldo: {cliente.balance}");
             Console.ReadKey();
 
 
@@ -167,6 +168,8 @@ namespace AdaCredit.UI.Repositories
                 if (line.Status == "Ativo")
                 {
                     Console.WriteLine($"Cliente: {line.Name} - Saldo: {line.balance}");
+                    Console.WriteLine(line.balance);
+                    Console.WriteLine(line.Number);
                 }
             }
             Console.ReadKey();
@@ -174,13 +177,19 @@ namespace AdaCredit.UI.Repositories
 
         public static void ShowInativeClients()
         {
-            foreach (var line in _clients)
-            {
-                if (line.Status == "Desativado")
+            if (_clients.Where(x => x.Status == "Desativado").ToList().Count() > 0) {
+                foreach (var line in _clients)
                 {
-                    Console.WriteLine($"Cliente: {line.Name}");
-                }
+                    if (line.Status == "Desativado")
+                    {
+                        Console.WriteLine($"Cliente: {line.Name}");
+                    }
+                } }
+            else
+            {
+                Console.WriteLine("Não existem clientes inativos");
             }
+
             Console.ReadKey();
         }
 
