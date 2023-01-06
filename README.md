@@ -29,8 +29,8 @@ Quando o login for bem sucedido, o sistema exibe um menu com opções para:
   -Cadastrar Novo Funcionário
   
   -Alterar Senha de um Funcionário existente
-  
-  -Desativar Cadastro de um Funcionário existente
+
+   -Desativar Cadastro de um Funcionário existente
   
 
 # Transações
