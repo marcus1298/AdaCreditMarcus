@@ -1,2 +1,3 @@
 OriginBankCode,OriginBankAgency,OriginBankAccount,DestinyBankCode,DestinyBankAgency,DestinyBankAccount,TypeTransaction,WayTransaction,ValueTransaction,Desc
 123,1234,12342-5,777,0001,04816-6,TED,0,200,
+123,1234,12342-5,777,0001,04816-6,PIX,0,20,
