@@ -3,7 +3,7 @@ Para garantir a segurança das informações, o sistema deve exigir login e senh
 O usuário e senha "iniciais" (na primeira execução do programa) devem ser *"user"* e *"pass". *Essa senha padrão deve ser trocada no primeiro login**.
 
 # Orientações:
--Os arquivos de Transações que contém as informações sobre as operações bancárias, se econtra dentro da pasta Transactions, e o mesmo pode ser alterado, caso o usuário deseje adicionar mais operações;
+-Os arquivos de Transações que contém as informações sobre as operações bancárias, se econtra dentro da pasta Transactions na pasta principal, e o mesmo pode ser alterado, caso o usuário deseje adicionar mais operações;
 
 -Os arquivos gerados após a operação de conciliação contábil, se encontram na pasta do projeto com os nomes(ArquivoCompleted, ArquivoFailed)
 
