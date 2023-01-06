@@ -2,6 +2,16 @@
 Para garantir a segurança das informações, o sistema deve exigir login e senha para que seja possível a sua operação.
 O usuário e senha "iniciais" (na primeira execução do programa) devem ser *"user"* e *"pass". *Essa senha padrão deve ser trocada no primeiro login**.
 
+# Orientações (MUITO IMPORTANTE !!!):
+-Os arquivos de Transações que contém as informações sobre as operações bancárias, se encontra dentro da pasta Transactions na pasta principal, e o mesmo pode ser alterado, caso o usuário deseje adicionar mais operações;
+
+-Os arquivos gerados após a operação de conciliação contábil, se encontram na pasta do projeto com os nomes(ArquivoCompleted, ArquivoFailed)
+
+-Os arquivos com informações de clientes e funcionários se encontram dentro da pasta AdaCredit/files
+
+
+-Você pode consultar os arquivos, adicionar informações ou modificar informações;
+Abaixo você pode encontrar mais informações sobre as funcionalidades
 Quando o login for bem sucedido, o sistema exibe um menu com opções para:
 
 # Clientes
