@@ -65,6 +65,10 @@ namespace AdaCredit
                     EmployeeRepository._employeeDataBase.Where(x => x.Login == username &&
                     Verify(password, x.Password)).ToList()[0].horaLogin = DateTime.Now;
                 }
+                else if (loggedIn)
+                {
+
+                }
                 else {
                     Console.WriteLine("Usuário ou senha incorretos!");
                     Console.ReadKey();

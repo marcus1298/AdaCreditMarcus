@@ -1,3 +1,5 @@
 OriginBankCode,OriginBankAgency,OriginBankAccount,DestinyBankCode,DestinyBankAgency,DestinyBankAccount,TypeTransaction,WayTransaction,ValueTransaction,Desc
 777,4250,66666-6,777,4250,88888-8,DOC,1,200,Conta de origem nao existe
 776,4256,66666-7,778,4256,88888-6,DOC,0,300,Conta de origem nao existe
+127,0001,24293-9,777,0001,04293-5,TED,0,80,Conta de origem nao existe
+123,1234,12342-5,777,0001,04293-5,PIX,0,20,Conta de destino nao existe
