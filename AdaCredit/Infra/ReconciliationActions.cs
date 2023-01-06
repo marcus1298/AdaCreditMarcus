@@ -8,6 +8,7 @@ using Bogus.DataSets;
 using System.Data.Common;
 using System.Xml.Linq;
 using AdaCredit.Repositories;
+using static System.Net.WebRequestMethods;
 
 namespace AdaCredit.Infra
 {
@@ -188,13 +189,16 @@ namespace AdaCredit.Infra
 
         public static void Save()
         {
-            var archiveName = "adacreditInfo.csv";
-            using (var writer = new StreamWriter(ConfigFile(archiveName, "ArquivoCompleted")))
+            string dt = DateTime.Now.ToString("yyyyMMdd");
+            
+            var archiveNameFailed = "adacredit-" + dt + "-failed.csv";
+            var archiveNameCompleted = "adacredit-" + dt + "-completed.csv";
+            using (var writer = new StreamWriter(ConfigFile(archiveNameCompleted, "ArquivoCompleted")))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
                 csv.WriteRecords(successfulTransaction);
             }
-            using (var writer = new StreamWriter(ConfigFile(archiveName, "ArquivoFailed")))
+            using (var writer = new StreamWriter(ConfigFile(archiveNameFailed, "ArquivoFailed")))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {
                 csv.WriteRecords(failedTransaction);
