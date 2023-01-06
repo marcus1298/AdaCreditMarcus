@@ -1,2 +1,3 @@
 OriginBankCode,OriginBankAgency,OriginBankAccount,DestinyBankCode,DestinyBankAgency,DestinyBankAccount,TypeTransaction,WayTransaction,ValueTransaction,Desc
-777,4250,666666,777,4250,888888,DOC,1,200,Conta de origem nao existe
+777,4250,66666-6,777,4250,88888-8,DOC,1,200,Conta de origem nao existe
+776,4256,66666-7,778,4256,88888-6,DOC,0,300,Conta de origem nao existe

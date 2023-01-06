@@ -69,6 +69,8 @@ namespace AdaCredit.Infra
 
         public static void PointControl()
         {
+            Console.WriteLine("Buscando no sistema...");
+            Thread.Sleep(1000);
             Employee? employee = EmployeeRepository._employeeDataBase.FirstOrDefault(x => x.Status == "Ativo");
             if (employee == null)
             {

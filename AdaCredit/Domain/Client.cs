@@ -7,8 +7,7 @@ using System.Reflection.Metadata;
 namespace AdaCredit.Domain
 {
     public class Client
-    {
-        public string Gender { get; set; } = "Indef";
+    {     
         public string Name { get; set; }
         public string Document { get; set; }
         public string BankCode { get; set; } = "777";

@@ -23,13 +23,37 @@ namespace AdaCredit
             {
                   
                 Console.Clear();
+               
+                for (int i = 0; i< 30; i++){
+                    Console.Write("$");
+                    Thread.Sleep(25);
 
+                }
+                Console.WriteLine();
+                Console.WriteLine();
+                Thread.Sleep(500);
+                Console.WriteLine("♥ Bem Vindo(a) ao Ada Credit ♥");
+                Thread.Sleep(500);
+                Console.WriteLine();
+                for (int i = 0; i < 30; i++)
+                {
+                    Console.Write("$");
+                    Thread.Sleep(40);
+
+                }
+                Console.WriteLine();
+                Console.WriteLine();
+                Thread.Sleep(500);
+                Console.WriteLine("Use suas credenciais de funcionário para logar no sistema !");
+                Console.WriteLine();
+                Thread.Sleep(1000);
                 Console.Write("Digite o Nome de Usuário: ");
-                var username = Console.ReadLine();
+                var username = Console.ReadLine();      
 
                 Console.Write("Digite a Senha: ");
                 var password = Console.ReadLine();
-
+                Console.WriteLine("Verificando...");
+                Thread.Sleep(400);
                 loggedIn = username.Equals("user", StringComparison.InvariantCultureIgnoreCase)
                            && password.Equals("pass", StringComparison.InvariantCultureIgnoreCase);
 

@@ -24,15 +24,14 @@ namespace AdaCredit.Repositories
                 {
                     if (!string.IsNullOrEmpty(Line))
                     {
-                        Client client = new Client();
-                        client.Gender = Line.Split(",")[0];
-                        client.Name = Line.Split(",")[1];
-                        client.Document = Line.Split(",")[2];
-                        client.BankCode = Line.Split(",")[3];
-                        client.Branch = Line.Split(",")[4];
-                        client.Account = Line.Split(",")[5];
-                        client.Status = Line.Split(",")[6];
-                        client.balance = Double.Parse(Line.Split(",")[7]);
+                        Client client = new Client();                       
+                        client.Name = Line.Split(",")[0];
+                        client.Document = Line.Split(",")[1];
+                        client.BankCode = Line.Split(",")[2];
+                        client.Branch = Line.Split(",")[3];
+                        client.Account = Line.Split(",")[4];
+                        client.Status = Line.Split(",")[5];
+                        client.balance = Double.Parse(Line.Split(",")[6]);
                         _clientDataBase.Add(client);
                     }
                 }
@@ -65,7 +64,7 @@ namespace AdaCredit.Repositories
                     }
                     if (ContainsInDefaultDataBase == false)
                     {
-                        File.Write($"\n{_clientDataBase[i].Gender},{_clientDataBase[i].Name},{_clientDataBase[i].Document}," +
+                        File.Write($"\n{_clientDataBase[i].Name},{_clientDataBase[i].Document}," +
                             $"{_clientDataBase[i].BankCode},{_clientDataBase[i].Branch},{_clientDataBase[i].Account}," +
                             $"{_clientDataBase[i].Status},{_clientDataBase[i].balance},\r");
                     }

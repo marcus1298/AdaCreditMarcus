@@ -76,9 +76,8 @@ namespace AdaCredit.Infra
                         transaction.Desc = "Conta de origem nao existe";
                         failedTransaction.Add(transaction);
                         Console.WriteLine("Conta de origem nao existe");
-                        Console.ReadKey();
                         Save();
-                        return;
+                        continue;
                     }
 
                     Client? contaDestino = ClientRepository._clientDataBase.FirstOrDefault(x => x.BankCode == transaction.DestinyBankCode &&
@@ -89,12 +88,16 @@ namespace AdaCredit.Infra
                         Console.WriteLine("Conta de destino nao existe");
                         transaction.Desc = "Conta de destino nao existe";
                         failedTransaction.Add(transaction);
-                        Console.ReadKey();
+                       
                         Save();
-                        return;
+                        continue;
                     }
                     var taxa = 0.0;
-                    if (transaction.TypeTransaction == "TED")
+                    if (transaction.DestinyBankAccount == "777")
+                    {
+                        taxa = 0;
+                    }
+                    else if (transaction.TypeTransaction == "TED")
                     {
                         taxa = 5.00;
                     }
@@ -119,33 +122,47 @@ namespace AdaCredit.Infra
                         transaction.Desc = "Nao existe saldo o suficiente para essa operacao";
                         Console.WriteLine("Nao existe saldo o suficiente para essa operacao");
                         failedTransaction.Add(transaction);
-                        Console.ReadKey();
-                        return;
+                        continue;
                     }
                     else
                     {
                         Console.WriteLine("Transacao bem sucedida!");
-                        contaOrigem.balance = contaOrigem.balance - (transaction.ValueTransaction + taxa);
-                        contaDestino.balance = contaDestino.balance + transaction.ValueTransaction;
+                        ClientRepository._clientDataBase.Where(x => x == contaOrigem).ToList()[0].balance = contaOrigem.balance - (transaction.ValueTransaction + taxa);
+                        ClientRepository._clientDataBase.Where(x => x == contaDestino).ToList()[0].balance = contaDestino.balance + transaction.ValueTransaction;
                         successfulTransaction.Add(transaction);
                         Save();
-                        Console.ReadKey();
+                        continue;
 
                     }
                 }
 
 
             }
+            Console.WriteLine();
+            Console.WriteLine("Carregando...");
+            Thread.Sleep(200);
+            for (int i = 0; i < 30; i++)
+            {
+                Console.Write("$");
+                Thread.Sleep(50);
 
+            }
+            Console.Write(" 100%");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Operacao Finalizada <Pressione qualquer tecla para continuar>");
+            Console.ReadKey();
         }
 
         public static void WrongTransactions()
         {
+            Console.WriteLine("Buscando no sistema...");
+            Thread.Sleep(1000);
 
-
-            if (failedTransaction is null)
+            if (failedTransaction.Count() == 0)
             {
                 Console.WriteLine("Não existem transações na lista");
+                Console.ReadKey();
                 return;
             }
 

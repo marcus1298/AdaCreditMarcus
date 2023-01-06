@@ -11,8 +11,7 @@ namespace AdaCredit.Utils
 
         public static string cript(string cleanPassword)
         {   
-            string hashedPassword = HashPassword(cleanPassword, WorkFactor);
-            Console.WriteLine($"O hash para sua senha é: {hashedPassword}");
+            string hashedPassword = HashPassword(cleanPassword, WorkFactor);          
 
             Console.WriteLine("Confirme sua nova senha: ");
             var passwordsMatch = Verify(Console.ReadLine(), hashedPassword);

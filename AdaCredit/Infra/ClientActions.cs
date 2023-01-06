@@ -111,6 +111,8 @@ namespace AdaCredit.Infra
 
         public static void ShowActiveClients()
         {
+            Console.WriteLine("Buscando no sistema...");
+            Thread.Sleep(1000);
             foreach (var line in ClientRepository._clientDataBase)
             {
                 if (line.Status == "Ativo")
@@ -123,6 +125,8 @@ namespace AdaCredit.Infra
 
         public static void ShowInativeClients()
         {
+            Console.WriteLine("Buscando no sistema...");
+            Thread.Sleep(1000);
             if (ClientRepository._clientDataBase.Where(x => x.Status == "Desativado").ToList().Count() > 0)
             {
                 foreach (var line in ClientRepository._clientDataBase)
