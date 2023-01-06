@@ -4,8 +4,11 @@ O usuário e senha "iniciais" (na primeira execução do programa) devem ser *"u
 
 # Orientações:
 -Os arquivos de Transações que contém as informações sobre as operações bancárias, se econtra dentro da pasta Transactions, e o mesmo pode ser alterado, caso o usuário deseje adicionar mais operações;
+
 -Os arquivos gerados após a operação de conciliação contábil, se encontram na pasta do projeto com os nomes(ArquivoCompleted, ArquivoFailed)
+
 -Os arquivos com informações de clientes e funcionários se encontram dentro da pasta AdaCredit/files
+
 
 -Você pode consultar os arquivos, adicionar informações ou modificar informações;
 Abaixo você pode encontrar mais informações sobre as funcionalidades
