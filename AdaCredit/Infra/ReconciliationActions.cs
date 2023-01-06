@@ -113,6 +113,15 @@ namespace AdaCredit.Infra
                             taxa = 1 + (transaction.ValueTransaction / 100F);
                         }
                     }
+                    else if(transaction.TypeTransaction == "TEF" && (transaction.OriginBankCode != transaction.DestinyBankCode))
+                    {
+                        Console.WriteLine("TEFs so podem ser realizadas entre clientes do mesmo banco.");
+                        transaction.Desc = "TEFs so podem ser realizadas entre clientes do mesmo banco.";
+                        failedTransaction.Add(transaction);
+                        Save();
+                        continue;
+                       
+                    }
                     else
                     {
                         taxa = 0;
@@ -189,8 +198,7 @@ namespace AdaCredit.Infra
 
         public static void Save()
         {
-            string dt = DateTime.Now.ToString("yyyyMMdd");
-            
+            string dt = DateTime.Now.ToString("yyyyMMdd"); 
             var archiveNameFailed = "adacredit-" + dt + "-failed.csv";
             var archiveNameCompleted = "adacredit-" + dt + "-completed.csv";
             using (var writer = new StreamWriter(ConfigFile(archiveNameCompleted, "ArquivoCompleted")))
